@@ -1,0 +1,43 @@
+@media screen and (max-width: 1600px) {
+    .mainContainer *{
+        position: relative;
+        /* width: auto; */
+        /* display: flex; */
+        /* color: red; */
+    }
+
+    .leftContainer{
+        float: left;
+        width: 48%;
+    }
+
+    .rightContainer{
+        float: right;
+        width: 48%;
+    }
+
+    .itemDisplay{
+        display: flex;
+    }
+
+    .card{
+        flex-basis: auto;
+    }
+
+}
+
+@media screen and (max-width: 1000px) {
+    .leftContainer{
+        float: none;
+        width: auto;
+    }
+
+    .rightContainer{
+        float: none;
+        width: auto;
+    }
+
+    .itemDisplay{
+        display: inline-block;
+    }
+}

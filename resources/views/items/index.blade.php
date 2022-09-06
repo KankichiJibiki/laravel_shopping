@@ -3,12 +3,12 @@
 @section('title', 'Item Overview')
 
 @section('content')
-    <div class="container d-flex p-2 card">
+    <div class="itemDisplay container p-2 justify-content-center">
         @if ($items->isNotEmpty())
             @foreach ($items as $item)
-                <div class="card p-1">
+                <div class="card p-1 text-center">
                     <form action="" method="post">
-                        <div class="card card-title">{{$item->item_name}}</div>
+                        <div class="card card-title border-0">{{$item->item_name}}</div>
                         <div class="mb-2">Price {{$item->item_price}}</div>
                         <div>
                             <button type="submit" class="btn btn-primary">Add to Cart</button>

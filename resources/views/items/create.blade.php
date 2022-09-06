@@ -4,11 +4,11 @@
 
 @section('content')
     @if (session('success_create'))
-        <div class="alert-success">{{session('success_create')}}</div>
+        <div class="alert alert-success">{{session('success_create')}}</div>
     @endif
-    <div class="container d-grid p-2">
-        {{-- input     --}}
-        <div class="my-3">
+    <div class="mainContainer container p-2">
+        {{-- left input--}}
+        <div class="leftContainer">
             <h3 class="text-center">Add Items</h3>
             <form action="/items" method="post">
                 @csrf
@@ -39,34 +39,37 @@
                 </div>
             </form>
         </div>
-        {{-- table --}}
-        <table class="table table-hover">
-            <thead class="bg-secondary text-light">
-                <tr>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Description</th>
-                    <th></th>
-                </tr>
-            </thead>
 
-            <tbody>
-                @foreach ($items as $item)
-                   <tr>
-                        <td class="col-3">{{$item->item_name}}</td>
-                        <td class="col-3">{{$item->item_price}}</td>
-                        <td class="col-4">{{$item->description}}</td>
-                        <td class="d-flex">
-                            <a href="/items/{{$item->uuid}}/edit" class="btn btn-warning">Edit</a>
-                            <form action="/items/{{$item->uuid}}" method="post">
-                                @csrf
-                                @method('delete')
-                                <button type="submit" class="btn btn-danger offset-4">Delete</button>
-                            </form>
-                        </td>
+        {{-- right table --}}
+        <div class="mt-4 rightContainer">
+            <table class="table table-hover">
+                <thead class="bg-secondary text-light">
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Description</th>
+                        <th></th>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
+                </thead>
+
+                <tbody>
+                    @foreach ($items as $item)
+                       <tr>
+                            <td class="col-3">{{$item->item_name}}</td>
+                            <td class="col-3">{{$item->item_price}}</td>
+                            <td class="col-3">{{$item->description}}</td>
+                            <td class="d-flex">
+                                <a href="/items/{{$item->uuid}}/edit" class="btn btn-warning">Edit</a>
+                                <form action="/items/{{$item->uuid}}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-danger offset-4">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 @endsection
