@@ -42,6 +42,10 @@
 
         {{-- right table --}}
         <div class="mt-4 rightContainer">
+            <div class="mb-2">
+                <a href="{{route('index')}}" class="float-end">Back <i class="fa-solid fa-right-to-bracket"></i></a>
+            </div>
+
             <table class="table table-hover">
                 <thead class="bg-secondary text-light">
                     <tr>
@@ -59,17 +63,18 @@
                             <td class="col-3">{{$item->item_price}}</td>
                             <td class="col-3">{{$item->description}}</td>
                             <td class="d-flex">
-                                <a href="/items/{{$item->uuid}}/edit" class="btn btn-warning">Edit</a>
+                                <a href="/items/{{$item->uuid}}/edit" class="btn btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
                                 <form action="/items/{{$item->uuid}}" method="post">
                                     @csrf
                                     @method('delete')
-                                    <button type="submit" class="btn btn-danger offset-4">Delete</button>
+                                    <button type="submit" class="btn btn-danger offset-4"><i class="fa-solid fa-trash"></i></button>
                                 </form>
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
+            {{$items->links()}}
         </div>
     </div>
 @endsection

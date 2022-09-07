@@ -18,15 +18,17 @@
 
     .itemDisplay{
         display: flex;
+        flex-wrap: wrap;
     }
 
     .card{
         flex-basis: auto;
+        margin-right: 1em;
     }
 
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 700px) {
     .leftContainer{
         float: none;
         width: auto;

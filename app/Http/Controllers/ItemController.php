@@ -32,7 +32,7 @@ class ItemController extends Controller
 
     public function index()
     {
-        return view('items.index')->with('items', $this->items->paginate(4));
+        return view('items.index')->with('items', $this->items->paginate(10));
     }
 
     /**
@@ -42,7 +42,7 @@ class ItemController extends Controller
      */
     public function create()
     {
-        return view('items.create')->with('items', $this->items->paginate(4));
+        return view('items.create')->with('items', $this->items->paginate(5));
     }
 
     /**
